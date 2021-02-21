@@ -13,7 +13,7 @@
 // limitations under the License.
 
 #include "rmw/error_handling.h"
-#include "rmw/network_flow_array.h"
+#include "rmw/network_flow.h"
 
 rmw_network_flow_array_t
 rmw_get_zero_initialized_network_flow_array(void)

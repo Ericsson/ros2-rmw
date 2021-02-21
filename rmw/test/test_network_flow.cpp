@@ -19,7 +19,7 @@
 #include "rcutils/types/string_map.h"
 
 #include "rmw/error_handling.h"
-#include "rmw/network_flow_array.h"
+#include "rmw/network_flow.h"
 #include "rmw/types.h"
 
 namespace

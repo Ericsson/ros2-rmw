@@ -20,7 +20,7 @@ extern "C"
 {
 #endif
 
-#include "rmw/network_flow_array.h"
+#include "rmw/network_flow.h"
 #include "rmw/types.h"
 #include "rmw/visibility_control.h"
 
