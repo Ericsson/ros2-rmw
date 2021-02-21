@@ -16,6 +16,8 @@
 #include "osrf_testing_tools_cpp/scope_exit.hpp"
 #include "rcutils/allocator.h"
 
+#include "rcutils/types/string_map.h"
+
 #include "rmw/error_handling.h"
 #include "rmw/network_flow_array.h"
 #include "rmw/types.h"
@@ -44,9 +46,14 @@ TEST(test_network_flow_array, check_zero) {
   rmw_network_flow_array_t network_flow_array_bad_1 = {1, nullptr};  // size not zero
   EXPECT_EQ(rmw_network_flow_array_check_zero(&network_flow_array_bad_1), RMW_RET_ERROR);
   rmw_reset_error();
-  rmw_network_flow_t network_flow;
+  rcutils_string_map_t network_flow = rcutils_get_zero_initialized_string_map();
   rmw_network_flow_array_t network_flow_array_bad_2 = {0, &network_flow};  // network_flow not NULL
   EXPECT_EQ(rmw_network_flow_array_check_zero(&network_flow_array_bad_2), RMW_RET_ERROR);
+  OSRF_TESTING_TOOLS_CPP_SCOPE_EXIT(
+  {
+    rmw_ret_t fini_ret = rcutils_string_map_fini(&network_flow);
+    EXPECT_EQ(fini_ret, RMW_RET_OK);
+  });
   rmw_reset_error();
   EXPECT_EQ(rmw_network_flow_array_check_zero(nullptr), RMW_RET_INVALID_ARGUMENT);
   rmw_reset_error();

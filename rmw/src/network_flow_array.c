@@ -52,14 +52,14 @@ rmw_network_flow_array_init(
     return RMW_RET_INVALID_ARGUMENT;
   }
   network_flow_array->network_flow =
-    allocator->allocate(sizeof(rmw_network_flow_t) * size, allocator->state);
+    allocator->allocate(sizeof(rcutils_string_map_t) * size, allocator->state);
   if (!network_flow_array->network_flow) {
     RMW_SET_ERROR_MSG("failed to allocate memory for network_flow_array");
     return RMW_RET_BAD_ALLOC;
   }
   network_flow_array->size = size;
   for (size_t i = 0; i < size; i++) {
-    network_flow_array->network_flow[i] = rmw_get_zero_initialized_network_flow();
+    network_flow_array->network_flow[i] = rcutils_get_zero_initialized_string_map();
   }
   return RMW_RET_OK;
 }
@@ -79,6 +79,13 @@ rmw_network_flow_array_fini(
     return RMW_RET_INVALID_ARGUMENT;
   }
 
+  rmw_ret_t ret;
+  for (size_t i = 0; i < network_flow_array->size; i++) {
+    ret = rcutils_string_map_fini(&network_flow_array->network_flow[i]);
+    if (ret != RMW_RET_OK) {
+      return ret;
+    }
+  }
   allocator->deallocate(network_flow_array->network_flow, allocator->state);
   network_flow_array->network_flow = NULL;
   network_flow_array->size = 0;

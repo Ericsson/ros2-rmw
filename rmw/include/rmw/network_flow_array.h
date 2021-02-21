@@ -21,18 +21,18 @@ extern "C"
 #endif
 
 #include "rcutils/allocator.h"
+#include "rcutils/types/string_map.h"
 
-#include "rmw/network_flow.h"
 #include "rmw/types.h"
 #include "rmw/visibility_control.h"
 
-/// Structure to hold an arrary of network_flow_t
+/// Structure to hold an arrary of network flows
 typedef struct RMW_PUBLIC_TYPE rmw_network_flow_array_t
 {
   /// Size of the array
   size_t size;
-  /// Array of rmw_network_flow_t
-  rmw_network_flow_t * network_flow;
+  /// Array
+  rcutils_string_map_t * network_flow;
 } rmw_network_flow_array_t;
 
 /// Return a rmw_network_flow_array_t instance with zero-initialized members

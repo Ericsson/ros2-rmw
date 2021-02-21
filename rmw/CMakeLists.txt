@@ -32,7 +32,6 @@ set(rmw_sources
   "src/message_sequence.c"
   "src/names_and_types.c"
   "src/network_flow_array.c"
-  "src/network_flow.c"
   "src/publisher_options.c"
   "src/qos_string_conversions.c"
   "src/sanity_checks.c"
