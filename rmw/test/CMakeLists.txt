@@ -193,12 +193,12 @@ if(TARGET test_network_flow)
   osrf_testing_tools_cpp::memory_tools)
 endif()
 
-ament_add_gmock(test_ips_flow_id
-  test_ips_flow_id.cpp
+ament_add_gmock(test_ips_network_flow_id
+  test_ips_network_flow_id.cpp
   # Append the directory of librmw so it is found at test time.
   APPEND_LIBRARY_DIRS "$<TARGET_FILE_DIR:${PROJECT_NAME}>"
 )
-if(TARGET test_ips_flow_id)
-  target_link_libraries(test_ips_flow_id ${PROJECT_NAME}
+if(TARGET test_ips_network_flow_id)
+  target_link_libraries(test_ips_network_flow_id ${PROJECT_NAME}
   osrf_testing_tools_cpp::memory_tools)
 endif()

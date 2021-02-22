@@ -12,18 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef RMW__IPS_FLOW_ID_H_
-#define RMW__IPS_FLOW_ID_H_
+#ifndef RMW__IPS_NETWORK_FLOW_ID_H_
+#define RMW__IPS_NETWORK_FLOW_ID_H_
 
 #if __cplusplus
 extern "C"
 {
 #endif
 
-// An enumeration of flow identifiers associated with the internet protocol
-// suite (IPS). This enables RMWs based on IPS to uniformly desribe their
-// network flows in string-based maps.
-typedef enum rmw_ips_flow_id_t
+// An enumeration of network flow identifiers associated with the internet
+// protocol suite (IPS). This enables RMWs based on IPS to uniformly desribe
+// their network flows in string-based maps.
+typedef enum rmw_ips_network_flow_id_t
 {
   RMW_IPS_TRANSPORT_PROTOCOL = 0,
   RMW_IPS_UDP_TRANSPORT_PROTOCOL,
@@ -44,13 +44,14 @@ typedef enum rmw_ips_flow_id_t
   RMW_IPS_PUBLISHER_INTERNET_ADDRESS,
   RMW_IPS_SUBSCRIPTION_INTERNET_ADDRESS,
   RMW_IPS_FLOW_LABEL,
-  NUM_RMW_IPS_FLOW_ID
+  NUM_RMW_IPS_NETWORK_FLOW_ID
 } rmw_ips_flow_id_t;
 
-// String counterparts of the enumeration of flow identifiers associated with
-// the internet protocol suite.  Access the required string using enumeration
-// as index i.e., rmw_ips_flow_id_str[INTERNET_ADDRESS]
-const char * rmw_ips_flow_id_str[] = {
+// String counterparts of the enumeration of network flow identifiers
+// associated with the internet protocol suite.  Access the required string
+// using enumeration as index i.e.,
+// rmw_ips_network_flow_id_str[INTERNET_ADDRESS]
+const char * rmw_ips_network_flow_id_str[] = {
   "TRANSPORT_PROTOCOL",
   "UDP_TRANSPORT_PROTOCOL",
   "TCP_TRANSPORT_PROTOCOL",
@@ -76,4 +77,4 @@ const char * rmw_ips_flow_id_str[] = {
 }
 #endif
 
-#endif  // RMW__IPS_FLOW_ID_H_
+#endif  // RMW__IPS_NETWORK_FLOW_ID_H_
