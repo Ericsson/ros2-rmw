@@ -19,8 +19,10 @@
 #include "rmw/error_handling.h"
 #include "rmw/ips_network_flow_id.h"
 
-// Test to check if the size of the enumeration rmw_ips_flow_id_t and its
-// string counterpart array rmw_ips_flow_id_str have the same size
+// Test to check if the size of the enumeration rmw_ips_network_flow_id_t and
+// its string counterpart array rmw_ips_flow_id_str have the same size
 TEST(test_ips_network_flow_id, check_size_consistency) {
-  EXPECT_EQ(sizeof(rmw_ips_network_flow_id_str)/sizeof(rmw_ips_network_flow_id_str[0]), NUM_RMW_IPS_NETWORK_FLOW_ID);
+  EXPECT_EQ(
+    sizeof(rmw_ips_network_flow_id_str) / sizeof(rmw_ips_network_flow_id_str[0]),
+    NUM_RMW_IPS_NETWORK_FLOW_ID);
 }
