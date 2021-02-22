@@ -45,7 +45,7 @@ typedef enum rmw_ips_network_flow_id_t
   RMW_IPS_SUBSCRIPTION_INTERNET_ADDRESS,
   RMW_IPS_FLOW_LABEL,
   NUM_RMW_IPS_NETWORK_FLOW_ID
-} rmw_ips_flow_id_t;
+} rmw_ips_network_flow_id_t;
 
 // String counterparts of the enumeration of network flow identifiers
 // associated with the internet protocol suite.  Access the required string
